@@ -1,4 +1,5 @@
-﻿using GreenByte;
+﻿using greenByte;
+using greenByte.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace greenByte
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new FormMain());
         }
     }
 }

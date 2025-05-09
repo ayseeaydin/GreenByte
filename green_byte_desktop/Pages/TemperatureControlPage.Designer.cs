@@ -1,6 +1,6 @@
 ﻿namespace greenByte.Pages
 {
-    partial class SicaklikControlPage
+    partial class TemperatureControlPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // SicaklikControlPage
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "SicaklikControlPage";
-            this.Size = new System.Drawing.Size(998, 616);
-            this.ResumeLayout(false);
-
+            
         }
 
         #endregion
+        
     }
 }

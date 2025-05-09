@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace greenByte.Pages
 {
-    public partial class SicaklikControlPage : UserControl
+    public partial class MoistureControlPage : UserControl
     {
-        public SicaklikControlPage()
+        public MoistureControlPage()
         {
             InitializeComponent();
         }

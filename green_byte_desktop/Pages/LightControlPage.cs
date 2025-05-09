@@ -8,15 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace greenByte.Forms
+namespace greenByte.Pages
 {
-    public partial class FormLogin : Form
+    public partial class LightControlPage : UserControl
     {
-        public FormLogin()
+        public LightControlPage()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }

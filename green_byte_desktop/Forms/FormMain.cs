@@ -21,10 +21,10 @@ namespace greenByte.Forms
             this.buttonUserControlPage.Click += new System.EventHandler(this.buttonPage_Click);
             this.buttonDataControlPage.Click += new System.EventHandler(this.buttonPage_Click);
             this.buttonLightControlPage.Click += new System.EventHandler(this.buttonPage_Click);
-            this.buttonMouistControlPage.Click += new System.EventHandler(this.buttonClose_Click);
-            this.buttonTempControlPage.Click += new System.EventHandler(this.buttonClose_Click);
-            this.buttonWaterControlPage.Click += new System.EventHandler(this.buttonClose_Click);
-            this.buttonSeraYonetimPage.Click += new System.EventHandler(this.buttonClose_Click);
+            this.buttonMouistControlPage.Click += new System.EventHandler(this.buttonPage_Click);
+            this.buttonTempControlPage.Click += new System.EventHandler(this.buttonPage_Click);
+            this.buttonWaterControlPage.Click += new System.EventHandler(this.buttonPage_Click);
+            this.buttonSeraYonetimPage.Click += new System.EventHandler(this.buttonPage_Click);
 
 
         }
@@ -59,21 +59,21 @@ namespace greenByte.Forms
                     case "buttonSeraYonetimPage":
                         clearAndAddControl(new SeraYonetimPage());
                         break;
-                    //case "buttonDataControlPage":
-                    //    clearAndAddControl(new DataControlPage());
-                    //    break;
-                    //case "buttonLightControlPage":
-                    //    clearAndAddControl(new LightControlPage());
-                    //    break;
-                    //case "buttonMouistControlPage":
-                    //    clearAndAddControl(new MoistureControlPage());
-                    //    break;
-                    //case "buttonTempControlPage":
-                    //    clearAndAddControl(new TemperatureControlPage());
-                    //    break;
-                    //case "buttonWaterControlPage":
-                    //    clearAndAddControl(new WaterControlPage());
-                    //    break;
+                    case "buttonTempControlPage":
+                        clearAndAddControl(new TemperatureControlPage());
+                        break;
+                    case "buttonDataControlPage":
+                       clearAndAddControl(new DataControlPage());
+                       break;
+                    case "buttonLightControlPage":
+                       clearAndAddControl(new LightControlPage());
+                       break;
+                    case "buttonMouistControlPage":
+                        clearAndAddControl(new MoistureControlPage());
+                        break;                    
+                    case "buttonWaterControlPage":
+                        clearAndAddControl(new WaterControlPage());
+                        break;
 
                     default:
                         clearAndAddControl(new AdminDashboardPage());
