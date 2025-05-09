@@ -1,4 +1,6 @@
-﻿namespace greenByte.Pages
+﻿using System.Windows.Forms;
+
+namespace greenByte.Pages
 {
     partial class MoistureControlPage
     {
@@ -28,562 +30,345 @@
         /// </summary>
         private void InitializeComponent()
         {
+            // Ana panel
+            this.panelMain = new System.Windows.Forms.Panel();
+
             // Başlık paneli
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
 
-            // Ana içerik paneli
-            this.panelContent = new System.Windows.Forms.Panel();
+            // Mevcut nem seviyesi paneli
+            this.panelMoistureLevel = new System.Windows.Forms.Panel();
+            this.labelMoistureLevelTitle = new System.Windows.Forms.Label();
+            this.panelMoistureGauge = new System.Windows.Forms.Panel();
+            this.panelMoistureIndicator = new System.Windows.Forms.Panel();
+            this.labelPercentValue = new System.Windows.Forms.Label();
+            this.btnManualMoistureControl = new System.Windows.Forms.Button();
 
-            // Nem ayarları paneli
-            this.panelHumiditySettings = new System.Windows.Forms.Panel();
-            this.labelHumiditySettingsTitle = new System.Windows.Forms.Label();
-            this.labelDesiredHumidity = new System.Windows.Forms.Label();
-            this.trackBarHumidity = new System.Windows.Forms.TrackBar();
-            this.labelMinHumidity = new System.Windows.Forms.Label();
-            this.labelMaxHumidity = new System.Windows.Forms.Label();
-            this.labelAutoControl = new System.Windows.Forms.Label();
-            this.switchAutoControl = new System.Windows.Forms.CheckBox();
+            // Nem bildirimleri paneli
+            this.panelMoistureNotifications = new System.Windows.Forms.Panel();
+            this.labelNotificationsTitle = new System.Windows.Forms.Label();
+            this.dataGridNotifications = new System.Windows.Forms.DataGridView();
+            this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDetail = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
-            // Minimum nem paneli
-            this.panelMinHumidity = new System.Windows.Forms.Panel();
-            this.labelMinHumidityTitle = new System.Windows.Forms.Label();
-            this.numericMinHumidity = new System.Windows.Forms.NumericUpDown();
-            this.labelMinHumidityPercent = new System.Windows.Forms.Label();
+            // Nem sistemi olayları paneli
+            this.panelMoistureEvents = new System.Windows.Forms.Panel();
+            this.labelEventsTitle = new System.Windows.Forms.Label();
+            this.dataGridEvents = new System.Windows.Forms.DataGridView();
+            this.colEventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventInitiator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEventResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
 
-            // Maksimum nem paneli
-            this.panelMaxHumidity = new System.Windows.Forms.Panel();
-            this.labelMaxHumidityTitle = new System.Windows.Forms.Label();
-            this.numericMaxHumidity = new System.Windows.Forms.NumericUpDown();
-            this.labelMaxHumidityPercent = new System.Windows.Forms.Label();
-
-            // Nem programları paneli
-            this.panelHumidityPrograms = new System.Windows.Forms.Panel();
-            this.labelHumidityProgramsTitle = new System.Windows.Forms.Label();
-            this.panelProgram1 = new System.Windows.Forms.Panel();
-            this.radioProgram1 = new System.Windows.Forms.RadioButton();
-            this.labelProgram1 = new System.Windows.Forms.Label();
-            this.panelProgram2 = new System.Windows.Forms.Panel();
-            this.radioProgram2 = new System.Windows.Forms.RadioButton();
-            this.labelProgram2 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-
-            // Mevcut nem paneli
-            this.panelCurrentHumidity = new System.Windows.Forms.Panel();
-            this.labelCurrentHumidityTitle = new System.Windows.Forms.Label();
-            this.labelCurrentHumidityValue = new System.Windows.Forms.Label();
+            // Son güncelleme bilgisi
             this.labelLastUpdate = new System.Windows.Forms.Label();
 
-            // Hızlı kontrol paneli
-            this.panelQuickControls = new System.Windows.Forms.Panel();
-            this.labelQuickControlsTitle = new System.Windows.Forms.Label();
-            this.btnProgram1 = new System.Windows.Forms.Button();
-            this.btnProgram2 = new System.Windows.Forms.Button();
-            this.btnProgramGeneral = new System.Windows.Forms.Button();
-
             // Designer init
+            this.panelMain.SuspendLayout();
             this.panelHeader.SuspendLayout();
-            this.panelContent.SuspendLayout();
-            this.panelHumiditySettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHumidity)).BeginInit();
-            this.panelMinHumidity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMinHumidity)).BeginInit();
-            this.panelMaxHumidity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMaxHumidity)).BeginInit();
-            this.panelHumidityPrograms.SuspendLayout();
-            this.panelProgram1.SuspendLayout();
-            this.panelProgram2.SuspendLayout();
-            this.panelCurrentHumidity.SuspendLayout();
-            this.panelQuickControls.SuspendLayout();
+            this.panelMoistureLevel.SuspendLayout();
+            this.panelMoistureGauge.SuspendLayout();
+            this.panelMoistureNotifications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNotifications)).BeginInit();
+            this.panelMoistureEvents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEvents)).BeginInit();
             this.SuspendLayout();
 
-            // panelHeader - Başlık paneli
+            // panelMain
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Padding = new System.Windows.Forms.Padding(15);
+            this.panelMain.Size = new System.Drawing.Size(900, 600);
+            this.panelMain.TabIndex = 0;
+
+            // panelHeader
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Location = new System.Drawing.Point(15, 15);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1000, 60);
+            this.panelHeader.Size = new System.Drawing.Size(870, 40);
             this.panelHeader.TabIndex = 0;
 
-            // labelTitle - Ana başlık
+            // labelTitle
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(0, 100, 0);
-            this.labelTitle.Location = new System.Drawing.Point(20, 15);
+            this.labelTitle.ForeColor = System.Drawing.Color.FromArgb(46, 125, 50);
+            this.labelTitle.Location = new System.Drawing.Point(0, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(150, 30);
+            this.labelTitle.Size = new System.Drawing.Size(320, 30);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "Nem Kontrolü";
+            this.labelTitle.Text = "Nem Kontrol Paneli";
 
-            // panelContent - Ana içerik paneli
-            this.panelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelContent.Location = new System.Drawing.Point(20, 70);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(960, 510);
-            this.panelContent.TabIndex = 1;
+            // panelMoistureLevel
+            this.panelMoistureLevel.BackColor = System.Drawing.Color.White;
+            this.panelMoistureLevel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMoistureLevel.Location = new System.Drawing.Point(15, 65);
+            this.panelMoistureLevel.Name = "panelMoistureLevel";
+            this.panelMoistureLevel.Size = new System.Drawing.Size(300, 230);
+            this.panelMoistureLevel.TabIndex = 1;
 
-            // panelHumiditySettings - Nem ayarları paneli
-            this.panelHumiditySettings.BackColor = System.Drawing.Color.White;
-            this.panelHumiditySettings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelHumiditySettings.Location = new System.Drawing.Point(20, 20);
-            this.panelHumiditySettings.Name = "panelHumiditySettings";
-            this.panelHumiditySettings.Size = new System.Drawing.Size(550, 220);
-            this.panelHumiditySettings.TabIndex = 0;
+            // labelMoistureLevelTitle
+            this.labelMoistureLevelTitle.AutoSize = true;
+            this.labelMoistureLevelTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.labelMoistureLevelTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            this.labelMoistureLevelTitle.Location = new System.Drawing.Point(15, 10);
+            this.labelMoistureLevelTitle.Name = "labelMoistureLevelTitle";
+            this.labelMoistureLevelTitle.Size = new System.Drawing.Size(160, 21);
+            this.labelMoistureLevelTitle.TabIndex = 0;
+            this.labelMoistureLevelTitle.Text = "Mevcut Nem Seviyesi";
 
-            // labelHumiditySettingsTitle - Nem ayarları başlığı
-            this.labelHumiditySettingsTitle.AutoSize = true;
-            this.labelHumiditySettingsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.labelHumiditySettingsTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelHumiditySettingsTitle.Location = new System.Drawing.Point(15, 15);
-            this.labelHumiditySettingsTitle.Name = "labelHumiditySettingsTitle";
-            this.labelHumiditySettingsTitle.Size = new System.Drawing.Size(115, 21);
-            this.labelHumiditySettingsTitle.TabIndex = 0;
-            this.labelHumiditySettingsTitle.Text = "Nem Ayarları";
+            // panelMoistureGauge
+            this.panelMoistureGauge.BackColor = System.Drawing.Color.FromArgb(255, 248, 230);
+            this.panelMoistureGauge.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMoistureGauge.Location = new System.Drawing.Point(15, 40);
+            this.panelMoistureGauge.Name = "panelMoistureGauge";
+            this.panelMoistureGauge.Size = new System.Drawing.Size(270, 130);
+            this.panelMoistureGauge.TabIndex = 1;
 
-            // labelDesiredHumidity - İstenen nem etiketi
-            this.labelDesiredHumidity.AutoSize = true;
-            this.labelDesiredHumidity.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.labelDesiredHumidity.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelDesiredHumidity.Location = new System.Drawing.Point(15, 50);
-            this.labelDesiredHumidity.Name = "labelDesiredHumidity";
-            this.labelDesiredHumidity.Size = new System.Drawing.Size(137, 20);
-            this.labelDesiredHumidity.TabIndex = 1;
-            this.labelDesiredHumidity.Text = "İstenen Nem Oranı: 65%";
+            // panelMoistureIndicator
+            this.panelMoistureIndicator.BackColor = System.Drawing.Color.FromArgb(243, 156, 18);
+            this.panelMoistureIndicator.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelMoistureIndicator.Location = new System.Drawing.Point(0, 65);
+            this.panelMoistureIndicator.Name = "panelMoistureIndicator";
+            this.panelMoistureIndicator.Size = new System.Drawing.Size(268, 65);
+            this.panelMoistureIndicator.TabIndex = 0;
 
-            // trackBarHumidity - Nem ayar çubuğu
-            this.trackBarHumidity.Location = new System.Drawing.Point(15, 80);
-            this.trackBarHumidity.Maximum = 90;
-            this.trackBarHumidity.Minimum = 40;
-            this.trackBarHumidity.Name = "trackBarHumidity";
-            this.trackBarHumidity.Size = new System.Drawing.Size(500, 45);
-            this.trackBarHumidity.TabIndex = 2;
-            this.trackBarHumidity.TickFrequency = 5;
-            this.trackBarHumidity.Value = 65;
+            // labelPercentValue
+            this.labelPercentValue.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold);
+            this.labelPercentValue.ForeColor = System.Drawing.Color.FromArgb(243, 156, 18);
+            this.labelPercentValue.Location = new System.Drawing.Point(15, 180);
+            this.labelPercentValue.Name = "labelPercentValue";
+            this.labelPercentValue.Size = new System.Drawing.Size(270, 45);
+            this.labelPercentValue.TabIndex = 2;
+            this.labelPercentValue.Text = "45%";
+            this.labelPercentValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 
-            // labelMinHumidity - Minimum nem etiketi
-            this.labelMinHumidity.AutoSize = true;
-            this.labelMinHumidity.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.labelMinHumidity.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.labelMinHumidity.Location = new System.Drawing.Point(15, 120);
-            this.labelMinHumidity.Name = "labelMinHumidity";
-            this.labelMinHumidity.Size = new System.Drawing.Size(30, 15);
-            this.labelMinHumidity.TabIndex = 3;
-            this.labelMinHumidity.Text = "40%";
+            // btnManualMoistureControl
+            this.btnManualMoistureControl.BackColor = System.Drawing.Color.FromArgb(243, 156, 18);
+            this.btnManualMoistureControl.FlatAppearance.BorderSize = 0;
+            this.btnManualMoistureControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManualMoistureControl.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnManualMoistureControl.ForeColor = System.Drawing.Color.White;
+            this.btnManualMoistureControl.Location = new System.Drawing.Point(15, 235);
+            this.btnManualMoistureControl.Name = "btnManualMoistureControl";
+            this.btnManualMoistureControl.Size = new System.Drawing.Size(270, 40);
+            this.btnManualMoistureControl.TabIndex = 3;
+            this.btnManualMoistureControl.Text = "Manuel Nem Kontrolü";
+            this.btnManualMoistureControl.UseVisualStyleBackColor = false;
 
-            // labelMaxHumidity - Maksimum nem etiketi
-            this.labelMaxHumidity.AutoSize = true;
-            this.labelMaxHumidity.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.labelMaxHumidity.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.labelMaxHumidity.Location = new System.Drawing.Point(485, 120);
-            this.labelMaxHumidity.Name = "labelMaxHumidity";
-            this.labelMaxHumidity.Size = new System.Drawing.Size(30, 15);
-            this.labelMaxHumidity.TabIndex = 4;
-            this.labelMaxHumidity.Text = "90%";
+            // panelMoistureNotifications
+            this.panelMoistureNotifications.BackColor = System.Drawing.Color.White;
+            this.panelMoistureNotifications.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMoistureNotifications.Location = new System.Drawing.Point(325, 65);
+            this.panelMoistureNotifications.Name = "panelMoistureNotifications";
+            this.panelMoistureNotifications.Size = new System.Drawing.Size(560, 215);
+            this.panelMoistureNotifications.TabIndex = 2;
 
-            // labelAutoControl - Otomatik kontrol etiketi
-            this.labelAutoControl.AutoSize = true;
-            this.labelAutoControl.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.labelAutoControl.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelAutoControl.Location = new System.Drawing.Point(15, 165);
-            this.labelAutoControl.Name = "labelAutoControl";
-            this.labelAutoControl.Size = new System.Drawing.Size(150, 20);
-            this.labelAutoControl.TabIndex = 5;
-            this.labelAutoControl.Text = "Otomatik Nem Kontrolü";
+            // labelNotificationsTitle
+            this.labelNotificationsTitle.AutoSize = true;
+            this.labelNotificationsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.labelNotificationsTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            this.labelNotificationsTitle.Location = new System.Drawing.Point(15, 10);
+            this.labelNotificationsTitle.Name = "labelNotificationsTitle";
+            this.labelNotificationsTitle.Size = new System.Drawing.Size(150, 21);
+            this.labelNotificationsTitle.TabIndex = 0;
+            this.labelNotificationsTitle.Text = "Nem Bildirimleri";
 
-            // switchAutoControl - Otomatik kontrol switch'i
-            this.switchAutoControl.Appearance = System.Windows.Forms.Appearance.Button;
-            this.switchAutoControl.AutoSize = true;
-            this.switchAutoControl.Checked = true;
-            this.switchAutoControl.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.switchAutoControl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.switchAutoControl.BackColor = System.Drawing.Color.FromArgb(46, 125, 50);
-            this.switchAutoControl.ForeColor = System.Drawing.Color.White;
-            this.switchAutoControl.Location = new System.Drawing.Point(475, 165);
-            this.switchAutoControl.Name = "switchAutoControl";
-            this.switchAutoControl.Size = new System.Drawing.Size(40, 25);
-            this.switchAutoControl.TabIndex = 6;
+            // dataGridNotifications
+            this.dataGridNotifications.AllowUserToAddRows = false;
+            this.dataGridNotifications.AllowUserToDeleteRows = false;
+            this.dataGridNotifications.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridNotifications.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridNotifications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridNotifications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+                this.colDate,
+                this.colType,
+                this.colStatus,
+                this.colDetail});
+            this.dataGridNotifications.Location = new System.Drawing.Point(15, 40);
+            this.dataGridNotifications.Name = "dataGridNotifications";
+            this.dataGridNotifications.ReadOnly = true;
+            this.dataGridNotifications.RowHeadersVisible = false;
+            this.dataGridNotifications.Size = new System.Drawing.Size(530, 160);
+            this.dataGridNotifications.TabIndex = 1;
 
-            // panelMinHumidity - Minimum nem paneli
-            this.panelMinHumidity.BackColor = System.Drawing.Color.White;
-            this.panelMinHumidity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMinHumidity.Location = new System.Drawing.Point(20, 260);
-            this.panelMinHumidity.Name = "panelMinHumidity";
-            this.panelMinHumidity.Size = new System.Drawing.Size(260, 100);
-            this.panelMinHumidity.TabIndex = 1;
+            // colDate
+            this.colDate.HeaderText = "Tarih/Saat";
+            this.colDate.Name = "colDate";
+            this.colDate.ReadOnly = true;
+            this.colDate.Width = 120;
 
-            // labelMinHumidityTitle - Minimum nem başlığı
-            this.labelMinHumidityTitle.AutoSize = true;
-            this.labelMinHumidityTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.labelMinHumidityTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelMinHumidityTitle.Location = new System.Drawing.Point(15, 15);
-            this.labelMinHumidityTitle.Name = "labelMinHumidityTitle";
-            this.labelMinHumidityTitle.Size = new System.Drawing.Size(100, 20);
-            this.labelMinHumidityTitle.TabIndex = 0;
-            this.labelMinHumidityTitle.Text = "Minimum Nem";
+            // colType
+            this.colType.HeaderText = "Tip";
+            this.colType.Name = "colType";
+            this.colType.ReadOnly = true;
+            this.colType.Width = 80;
 
-            // numericMinHumidity - Minimum nem seçici
-            this.numericMinHumidity.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.numericMinHumidity.Location = new System.Drawing.Point(35, 45);
-            this.numericMinHumidity.Maximum = new decimal(new int[] { 70, 0, 0, 0 });
-            this.numericMinHumidity.Minimum = new decimal(new int[] { 40, 0, 0, 0 });
-            this.numericMinHumidity.Name = "numericMinHumidity";
-            this.numericMinHumidity.Size = new System.Drawing.Size(120, 32);
-            this.numericMinHumidity.TabIndex = 1;
-            this.numericMinHumidity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericMinHumidity.Value = new decimal(new int[] { 55, 0, 0, 0 });
+            // colStatus
+            this.colStatus.HeaderText = "Durum";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            this.colStatus.Width = 80;
 
-            // labelMinHumidityPercent - Minimum nem yüzde işareti
-            this.labelMinHumidityPercent.AutoSize = true;
-            this.labelMinHumidityPercent.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.labelMinHumidityPercent.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelMinHumidityPercent.Location = new System.Drawing.Point(165, 47);
-            this.labelMinHumidityPercent.Name = "labelMinHumidityPercent";
-            this.labelMinHumidityPercent.Size = new System.Drawing.Size(28, 25);
-            this.labelMinHumidityPercent.TabIndex = 2;
-            this.labelMinHumidityPercent.Text = "%";
+            // colDetail
+            this.colDetail.HeaderText = "Detay";
+            this.colDetail.Name = "colDetail";
+            this.colDetail.ReadOnly = true;
+            this.colDetail.Width = 250;
 
-            // panelMaxHumidity - Maksimum nem paneli
-            this.panelMaxHumidity.BackColor = System.Drawing.Color.White;
-            this.panelMaxHumidity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMaxHumidity.Location = new System.Drawing.Point(310, 260);
-            this.panelMaxHumidity.Name = "panelMaxHumidity";
-            this.panelMaxHumidity.Size = new System.Drawing.Size(260, 100);
-            this.panelMaxHumidity.TabIndex = 2;
+            // panelMoistureEvents
+            this.panelMoistureEvents.BackColor = System.Drawing.Color.White;
+            this.panelMoistureEvents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMoistureEvents.Location = new System.Drawing.Point(15, 305);
+            this.panelMoistureEvents.Name = "panelMoistureEvents";
+            this.panelMoistureEvents.Size = new System.Drawing.Size(870, 250);
+            this.panelMoistureEvents.TabIndex = 3;
 
-            // labelMaxHumidityTitle - Maksimum nem başlığı
-            this.labelMaxHumidityTitle.AutoSize = true;
-            this.labelMaxHumidityTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.labelMaxHumidityTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelMaxHumidityTitle.Location = new System.Drawing.Point(15, 15);
-            this.labelMaxHumidityTitle.Name = "labelMaxHumidityTitle";
-            this.labelMaxHumidityTitle.Size = new System.Drawing.Size(104, 20);
-            this.labelMaxHumidityTitle.TabIndex = 0;
-            this.labelMaxHumidityTitle.Text = "Maksimum Nem";
+            // labelEventsTitle
+            this.labelEventsTitle.AutoSize = true;
+            this.labelEventsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.labelEventsTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
+            this.labelEventsTitle.Location = new System.Drawing.Point(15, 10);
+            this.labelEventsTitle.Name = "labelEventsTitle";
+            this.labelEventsTitle.Size = new System.Drawing.Size(150, 21);
+            this.labelEventsTitle.TabIndex = 0;
+            this.labelEventsTitle.Text = "Nem Sistemi Olayları";
 
-            // numericMaxHumidity - Maksimum nem seçici
-            this.numericMaxHumidity.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.numericMaxHumidity.Location = new System.Drawing.Point(35, 45);
-            this.numericMaxHumidity.Maximum = new decimal(new int[] { 90, 0, 0, 0 });
-            this.numericMaxHumidity.Minimum = new decimal(new int[] { 60, 0, 0, 0 });
-            this.numericMaxHumidity.Name = "numericMaxHumidity";
-            this.numericMaxHumidity.Size = new System.Drawing.Size(120, 32);
-            this.numericMaxHumidity.TabIndex = 1;
-            this.numericMaxHumidity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericMaxHumidity.Value = new decimal(new int[] { 75, 0, 0, 0 });
+            // dataGridEvents
+            this.dataGridEvents.AllowUserToAddRows = false;
+            this.dataGridEvents.AllowUserToDeleteRows = false;
+            this.dataGridEvents.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridEvents.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+                this.colEventDate,
+                this.colEventType,
+                this.colEventInitiator,
+                this.colEventStatus,
+                this.colEventResult});
+            this.dataGridEvents.Location = new System.Drawing.Point(15, 40);
+            this.dataGridEvents.Name = "dataGridEvents";
+            this.dataGridEvents.ReadOnly = true;
+            this.dataGridEvents.RowHeadersVisible = false;
+            this.dataGridEvents.Size = new System.Drawing.Size(840, 190);
+            this.dataGridEvents.TabIndex = 1;
 
-            // labelMaxHumidityPercent - Maksimum nem yüzde işareti
-            this.labelMaxHumidityPercent.AutoSize = true;
-            this.labelMaxHumidityPercent.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.labelMaxHumidityPercent.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelMaxHumidityPercent.Location = new System.Drawing.Point(165, 47);
-            this.labelMaxHumidityPercent.Name = "labelMaxHumidityPercent";
-            this.labelMaxHumidityPercent.Size = new System.Drawing.Size(28, 25);
-            this.labelMaxHumidityPercent.TabIndex = 2;
-            this.labelMaxHumidityPercent.Text = "%";
+            // colEventDate
+            this.colEventDate.HeaderText = "Tarih/Saat";
+            this.colEventDate.Name = "colEventDate";
+            this.colEventDate.ReadOnly = true;
+            this.colEventDate.Width = 120;
 
-            // panelHumidityPrograms - Nem programları paneli
-            this.panelHumidityPrograms.BackColor = System.Drawing.Color.White;
-            this.panelHumidityPrograms.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelHumidityPrograms.Location = new System.Drawing.Point(20, 380);
-            this.panelHumidityPrograms.Name = "panelHumidityPrograms";
-            this.panelHumidityPrograms.Size = new System.Drawing.Size(550, 110);
-            this.panelHumidityPrograms.TabIndex = 3;
+            // colEventType
+            this.colEventType.HeaderText = "Olay Tipi";
+            this.colEventType.Name = "colEventType";
+            this.colEventType.ReadOnly = true;
+            this.colEventType.Width = 150;
 
-            // labelHumidityProgramsTitle - Nem programları başlığı
-            this.labelHumidityProgramsTitle.AutoSize = true;
-            this.labelHumidityProgramsTitle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.labelHumidityProgramsTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelHumidityProgramsTitle.Location = new System.Drawing.Point(15, 15);
-            this.labelHumidityProgramsTitle.Name = "labelHumidityProgramsTitle";
-            this.labelHumidityProgramsTitle.Size = new System.Drawing.Size(115, 20);
-            this.labelHumidityProgramsTitle.TabIndex = 0;
-            this.labelHumidityProgramsTitle.Text = "Nem Programları";
+            // colEventInitiator
+            this.colEventInitiator.HeaderText = "Tetikleyen";
+            this.colEventInitiator.Name = "colEventInitiator";
+            this.colEventInitiator.ReadOnly = true;
+            this.colEventInitiator.Width = 150;
 
-            // panelProgram1 - Program 1 paneli
-            this.panelProgram1.BackColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            this.panelProgram1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelProgram1.Location = new System.Drawing.Point(20, 45);
-            this.panelProgram1.Name = "panelProgram1";
-            this.panelProgram1.Size = new System.Drawing.Size(240, 40);
-            this.panelProgram1.TabIndex = 1;
+            // colEventStatus
+            this.colEventStatus.HeaderText = "Durum";
+            this.colEventStatus.Name = "colEventStatus";
+            this.colEventStatus.ReadOnly = true;
+            this.colEventStatus.Width = 100;
 
-            // radioProgram1 - Program 1 radio butonu
-            this.radioProgram1.AutoSize = true;
-            this.radioProgram1.Checked = true;
-            this.radioProgram1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.radioProgram1.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.radioProgram1.Location = new System.Drawing.Point(10, 9);
-            this.radioProgram1.Name = "radioProgram1";
-            this.radioProgram1.Size = new System.Drawing.Size(14, 13);
-            this.radioProgram1.TabIndex = 0;
-            this.radioProgram1.TabStop = true;
-            this.radioProgram1.UseVisualStyleBackColor = true;
+            // colEventResult
+            this.colEventResult.HeaderText = "Sonuç";
+            this.colEventResult.Name = "colEventResult";
+            this.colEventResult.ReadOnly = true;
+            this.colEventResult.Width = 320;
 
-            // labelProgram1 - Program 1 etiketi
-            this.labelProgram1.AutoSize = true;
-            this.labelProgram1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.labelProgram1.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelProgram1.Location = new System.Drawing.Point(30, 9);
-            this.labelProgram1.Name = "labelProgram1";
-            this.labelProgram1.Size = new System.Drawing.Size(131, 17);
-            this.labelProgram1.TabIndex = 1;
-            this.labelProgram1.Text = "Çeri Domates (70%)";
-
-            // panelProgram2 - Program 2 paneli
-            this.panelProgram2.BackColor = System.Drawing.Color.FromArgb(238, 238, 238);
-            this.panelProgram2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelProgram2.Location = new System.Drawing.Point(270, 45);
-            this.panelProgram2.Name = "panelProgram2";
-            this.panelProgram2.Size = new System.Drawing.Size(240, 40);
-            this.panelProgram2.TabIndex = 2;
-
-            // radioProgram2 - Program 2 radio butonu
-            this.radioProgram2.AutoSize = true;
-            this.radioProgram2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.radioProgram2.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.radioProgram2.Location = new System.Drawing.Point(10, 9);
-            this.radioProgram2.Name = "radioProgram2";
-            this.radioProgram2.Size = new System.Drawing.Size(14, 13);
-            this.radioProgram2.TabIndex = 0;
-            this.radioProgram2.UseVisualStyleBackColor = true;
-
-            // labelProgram2 - Program 2 etiketi
-            this.labelProgram2.AutoSize = true;
-            this.labelProgram2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.labelProgram2.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelProgram2.Location = new System.Drawing.Point(30, 9);
-            this.labelProgram2.Name = "labelProgram2";
-            this.labelProgram2.Size = new System.Drawing.Size(102, 17);
-            this.labelProgram2.TabIndex = 1;
-            this.labelProgram2.Text = "Menekşe (55%)";
-
-            // btnSave - Kaydet butonu
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(46, 125, 50);
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(430, 60);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 30);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "Kaydet";
-            this.btnSave.UseVisualStyleBackColor = false;
-
-            // panelCurrentHumidity - Mevcut nem paneli
-            this.panelCurrentHumidity.BackColor = System.Drawing.Color.White;
-            this.panelCurrentHumidity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelCurrentHumidity.Location = new System.Drawing.Point(590, 20);
-            this.panelCurrentHumidity.Name = "panelCurrentHumidity";
-            this.panelCurrentHumidity.Size = new System.Drawing.Size(350, 220);
-            this.panelCurrentHumidity.TabIndex = 4;
-
-            // labelCurrentHumidityTitle - Mevcut nem başlığı
-            this.labelCurrentHumidityTitle.AutoSize = true;
-            this.labelCurrentHumidityTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.labelCurrentHumidityTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelCurrentHumidityTitle.Location = new System.Drawing.Point(15, 15);
-            this.labelCurrentHumidityTitle.Name = "labelCurrentHumidityTitle";
-            this.labelCurrentHumidityTitle.Size = new System.Drawing.Size(100, 21);
-            this.labelCurrentHumidityTitle.TabIndex = 0;
-            this.labelCurrentHumidityTitle.Text = "Mevcut Nem";
-
-            // labelCurrentHumidityValue - Mevcut nem değeri
-            this.labelCurrentHumidityValue.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Bold);
-            this.labelCurrentHumidityValue.ForeColor = System.Drawing.Color.FromArgb(33, 150, 243);
-            this.labelCurrentHumidityValue.Location = new System.Drawing.Point(0, 80);
-            this.labelCurrentHumidityValue.Name = "labelCurrentHumidityValue";
-            this.labelCurrentHumidityValue.Size = new System.Drawing.Size(350, 86);
-            this.labelCurrentHumidityValue.TabIndex = 1;
-            this.labelCurrentHumidityValue.Text = "65%";
-            this.labelCurrentHumidityValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-
-            // labelLastUpdate - Son güncelleme zamanı
-            this.labelLastUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            // labelLastUpdate
+            this.labelLastUpdate.AutoSize = true;
+            this.labelLastUpdate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.labelLastUpdate.ForeColor = System.Drawing.Color.FromArgb(120, 120, 120);
-            this.labelLastUpdate.Location = new System.Drawing.Point(0, 190);
+            this.labelLastUpdate.Location = new System.Drawing.Point(650, 565);
             this.labelLastUpdate.Name = "labelLastUpdate";
-            this.labelLastUpdate.Size = new System.Drawing.Size(350, 15);
-            this.labelLastUpdate.TabIndex = 2;
-            this.labelLastUpdate.Text = "Son Güncelleme: 03.05.2025 10:15";
-            this.labelLastUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLastUpdate.Size = new System.Drawing.Size(240, 15);
+            this.labelLastUpdate.TabIndex = 4;
+            this.labelLastUpdate.Text = "Son Güncelleme: 09.05.2025 10:15";
 
-            // panelQuickControls - Hızlı kontrol paneli
-            this.panelQuickControls.BackColor = System.Drawing.Color.White;
-            this.panelQuickControls.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelQuickControls.Location = new System.Drawing.Point(590, 260);
-            this.panelQuickControls.Name = "panelQuickControls";
-            this.panelQuickControls.Size = new System.Drawing.Size(350, 230);
-            this.panelQuickControls.TabIndex = 5;
-
-            // labelQuickControlsTitle - Hızlı kontrol başlığı
-            this.labelQuickControlsTitle.AutoSize = true;
-            this.labelQuickControlsTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.labelQuickControlsTitle.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.labelQuickControlsTitle.Location = new System.Drawing.Point(15, 15);
-            this.labelQuickControlsTitle.Name = "labelQuickControlsTitle";
-            this.labelQuickControlsTitle.Size = new System.Drawing.Size(120, 21);
-            this.labelQuickControlsTitle.TabIndex = 0;
-            this.labelQuickControlsTitle.Text = "Hızlı Kontroller";
-
-            // btnProgram1 - Program 1 butonu
-            this.btnProgram1.BackColor = System.Drawing.Color.FromArgb(33, 150, 243);
-            this.btnProgram1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProgram1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnProgram1.ForeColor = System.Drawing.Color.White;
-            this.btnProgram1.Location = new System.Drawing.Point(25, 50);
-            this.btnProgram1.Name = "btnProgram1";
-            this.btnProgram1.Size = new System.Drawing.Size(300, 40);
-            this.btnProgram1.TabIndex = 1;
-            this.btnProgram1.Text = "Çeri Domates (70%)";
-            this.btnProgram1.UseVisualStyleBackColor = false;
-
-            // btnProgram2 - Program 2 butonu
-            this.btnProgram2.BackColor = System.Drawing.Color.White;
-            this.btnProgram2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProgram2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnProgram2.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.btnProgram2.Location = new System.Drawing.Point(25, 110);
-            this.btnProgram2.Name = "btnProgram2";
-            this.btnProgram2.Size = new System.Drawing.Size(300, 40);
-            this.btnProgram2.TabIndex = 2;
-            this.btnProgram2.Text = "Menekşe (55%)";
-            this.btnProgram2.UseVisualStyleBackColor = true;
-
-            // btnProgramGeneral - Genel program butonu
-            this.btnProgramGeneral.BackColor = System.Drawing.Color.White;
-            this.btnProgramGeneral.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProgramGeneral.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.btnProgramGeneral.ForeColor = System.Drawing.Color.FromArgb(64, 64, 64);
-            this.btnProgramGeneral.Location = new System.Drawing.Point(25, 170);
-            this.btnProgramGeneral.Name = "btnProgramGeneral";
-            this.btnProgramGeneral.Size = new System.Drawing.Size(300, 40);
-            this.btnProgramGeneral.TabIndex = 3;
-            this.btnProgramGeneral.Text = "Genel (60%)";
-            this.btnProgramGeneral.UseVisualStyleBackColor = true;
-
-            // Ana kontrol - panellerin birleştirilmesi
-            this.panelHumiditySettings.Controls.Add(this.labelHumiditySettingsTitle);
-            this.panelHumiditySettings.Controls.Add(this.labelDesiredHumidity);
-            this.panelHumiditySettings.Controls.Add(this.trackBarHumidity);
-            this.panelHumiditySettings.Controls.Add(this.labelMinHumidity);
-            this.panelHumiditySettings.Controls.Add(this.labelMaxHumidity);
-            this.panelHumiditySettings.Controls.Add(this.labelAutoControl);
-            this.panelHumiditySettings.Controls.Add(this.switchAutoControl);
-
-            this.panelMinHumidity.Controls.Add(this.labelMinHumidityTitle);
-            this.panelMinHumidity.Controls.Add(this.numericMinHumidity);
-            this.panelMinHumidity.Controls.Add(this.labelMinHumidityPercent);
-
-            this.panelMaxHumidity.Controls.Add(this.labelMaxHumidityTitle);
-            this.panelMaxHumidity.Controls.Add(this.numericMaxHumidity);
-            this.panelMaxHumidity.Controls.Add(this.labelMaxHumidityPercent);
-
-            this.panelProgram1.Controls.Add(this.radioProgram1);
-            this.panelProgram1.Controls.Add(this.labelProgram1);
-
-            this.panelProgram2.Controls.Add(this.radioProgram2);
-            this.panelProgram2.Controls.Add(this.labelProgram2);
-
-            this.panelHumidityPrograms.Controls.Add(this.labelHumidityProgramsTitle);
-            this.panelHumidityPrograms.Controls.Add(this.panelProgram1);
-            this.panelHumidityPrograms.Controls.Add(this.panelProgram2);
-            this.panelHumidityPrograms.Controls.Add(this.btnSave);
-
-            this.panelCurrentHumidity.Controls.Add(this.labelCurrentHumidityTitle);
-            this.panelCurrentHumidity.Controls.Add(this.labelCurrentHumidityValue);
-            this.panelCurrentHumidity.Controls.Add(this.labelLastUpdate);
-
-            this.panelQuickControls.Controls.Add(this.labelQuickControlsTitle);
-            this.panelQuickControls.Controls.Add(this.btnProgram1);
-            this.panelQuickControls.Controls.Add(this.btnProgram2);
-            this.panelQuickControls.Controls.Add(this.btnProgramGeneral);
-
-            this.panelContent.Controls.Add(this.panelHumiditySettings);
-            this.panelContent.Controls.Add(this.panelMinHumidity);
-            this.panelContent.Controls.Add(this.panelMaxHumidity);
-            this.panelContent.Controls.Add(this.panelHumidityPrograms);
-            this.panelContent.Controls.Add(this.panelCurrentHumidity);
-            this.panelContent.Controls.Add(this.panelQuickControls);
-
+            // Assemble controls
+            this.panelMoistureGauge.Controls.Add(this.panelMoistureIndicator);
+            this.panelMoistureGauge.Dock = DockStyle.None;
+            this.panelMoistureLevel.Controls.Add(this.labelMoistureLevelTitle);
+            this.panelMoistureLevel.Controls.Add(this.panelMoistureGauge);
+            this.panelMoistureLevel.Controls.Add(this.labelPercentValue);
+            this.panelMoistureLevel.Controls.Add(this.btnManualMoistureControl);
+            this.panelMoistureNotifications.Controls.Add(this.labelNotificationsTitle);
+            this.panelMoistureNotifications.Controls.Add(this.dataGridNotifications);
+            this.panelMoistureEvents.Controls.Add(this.labelEventsTitle);
+            this.panelMoistureEvents.Controls.Add(this.dataGridEvents);
             this.panelHeader.Controls.Add(this.labelTitle);
+            this.panelMain.Controls.Add(this.panelHeader);
+            this.panelMain.Controls.Add(this.panelMoistureLevel);
+            this.panelMain.Controls.Add(this.panelMoistureNotifications);
+            this.panelMain.Controls.Add(this.panelMoistureEvents);
+            this.panelMain.Controls.Add(this.labelLastUpdate);
 
-            // Ana panel kontrollerinin eklenmesi
-            this.Controls.Add(this.panelHeader);
-            this.Controls.Add(this.panelContent);
+            // MoistureControlPage
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(245, 245, 245);
+            this.Controls.Add(this.panelMain);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Name = "MoistureControlPage";
+            this.Size = new System.Drawing.Size(900, 600);
 
-            // HumidityControlPage
-            this.Name = "HumidityControlPage";
-            this.Size = new System.Drawing.Size(1000, 600);
-            this.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
-
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            this.panelContent.ResumeLayout(false);
-            this.panelHumiditySettings.ResumeLayout(false);
-            this.panelHumiditySettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarHumidity)).EndInit();
-            this.panelMinHumidity.ResumeLayout(false);
-            this.panelMinHumidity.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMinHumidity)).EndInit();
-            this.panelMaxHumidity.ResumeLayout(false);
-            this.panelMaxHumidity.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMaxHumidity)).EndInit();
-            this.panelHumidityPrograms.ResumeLayout(false);
-            this.panelHumidityPrograms.PerformLayout();
-            this.panelProgram1.ResumeLayout(false);
-            this.panelProgram1.PerformLayout();
-            this.panelProgram2.ResumeLayout(false);
-            this.panelProgram2.PerformLayout();
-            this.panelCurrentHumidity.ResumeLayout(false);
-            this.panelCurrentHumidity.PerformLayout();
-            this.panelQuickControls.ResumeLayout(false);
-            this.panelQuickControls.PerformLayout();
+            this.panelMoistureLevel.ResumeLayout(false);
+            this.panelMoistureLevel.PerformLayout();
+            this.panelMoistureGauge.ResumeLayout(false);
+            this.panelMoistureNotifications.ResumeLayout(false);
+            this.panelMoistureNotifications.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNotifications)).EndInit();
+            this.panelMoistureEvents.ResumeLayout(false);
+            this.panelMoistureEvents.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridEvents)).EndInit();
             this.ResumeLayout(false);
         }
 
         #endregion
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label labelTitle;
 
-        private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Panel panelMoistureLevel;
+        private System.Windows.Forms.Label labelMoistureLevelTitle;
+        private System.Windows.Forms.Panel panelMoistureGauge;
+        private System.Windows.Forms.Panel panelMoistureIndicator;
+        private System.Windows.Forms.Label labelPercentValue;
+        private System.Windows.Forms.Button btnManualMoistureControl;
 
-        private System.Windows.Forms.Panel panelHumiditySettings;
-        private System.Windows.Forms.Label labelHumiditySettingsTitle;
-        private System.Windows.Forms.Label labelDesiredHumidity;
-        private System.Windows.Forms.TrackBar trackBarHumidity;
-        private System.Windows.Forms.Label labelMinHumidity;
-        private System.Windows.Forms.Label labelMaxHumidity;
-        private System.Windows.Forms.Label labelAutoControl;
-        private System.Windows.Forms.CheckBox switchAutoControl;
+        private System.Windows.Forms.Panel panelMoistureNotifications;
+        private System.Windows.Forms.Label labelNotificationsTitle;
+        private System.Windows.Forms.DataGridView dataGridNotifications;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDetail;
 
-        private System.Windows.Forms.Panel panelMinHumidity;
-        private System.Windows.Forms.Label labelMinHumidityTitle;
-        private System.Windows.Forms.NumericUpDown numericMinHumidity;
-        private System.Windows.Forms.Label labelMinHumidityPercent;
+        private System.Windows.Forms.Panel panelMoistureEvents;
+        private System.Windows.Forms.Label labelEventsTitle;
+        private System.Windows.Forms.DataGridView dataGridEvents;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventInitiator;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEventResult;
 
-        private System.Windows.Forms.Panel panelMaxHumidity;
-        private System.Windows.Forms.Label labelMaxHumidityTitle;
-        private System.Windows.Forms.NumericUpDown numericMaxHumidity;
-        private System.Windows.Forms.Label labelMaxHumidityPercent;
-
-        private System.Windows.Forms.Panel panelHumidityPrograms;
-        private System.Windows.Forms.Label labelHumidityProgramsTitle;
-        private System.Windows.Forms.Panel panelProgram1;
-        private System.Windows.Forms.RadioButton radioProgram1;
-        private System.Windows.Forms.Label labelProgram1;
-        private System.Windows.Forms.Panel panelProgram2;
-        private System.Windows.Forms.RadioButton radioProgram2;
-        private System.Windows.Forms.Label labelProgram2;
-        private System.Windows.Forms.Button btnSave;
-
-        private System.Windows.Forms.Panel panelCurrentHumidity;
-        private System.Windows.Forms.Label labelCurrentHumidityTitle;
-        private System.Windows.Forms.Label labelCurrentHumidityValue;
         private System.Windows.Forms.Label labelLastUpdate;
-
-        private System.Windows.Forms.Panel panelQuickControls;
-        private System.Windows.Forms.Label labelQuickControlsTitle;
-        private System.Windows.Forms.Button btnProgram1;
-        private System.Windows.Forms.Button btnProgram2;
-        private System.Windows.Forms.Button btnProgramGeneral;
     }
 }
