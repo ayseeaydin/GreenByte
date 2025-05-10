@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataAccess\AuthRepository.cs" />
     <Compile Include="DataAccess\DatabaseContext.cs" />
     <Compile Include="DBContext.cs" />
     <Compile Include="Entities\Device.cs" />

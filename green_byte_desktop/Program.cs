@@ -17,6 +17,7 @@ namespace greenByte
         [STAThread]
         static void Main()
         {
+            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
@@ -35,11 +36,12 @@ namespace greenByte
             }
 
             Application.Run(new Form());  // Geçici olarak boş bir form açıyoruz
-            /*
+            */
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormLogin());
-            */
+            
         }
     }
 }
