@@ -103,14 +103,14 @@ GreenByte, ESP32 tabanlı donanım mimarisi ve web/desktop yazılım katmanları
 
 | Bileşen            | Pin     |
 | ------------------ | ------- |
-| DHT11              | GPIO 4  |
+| DHT11              | GPIO 21  |
 | LDR                | GPIO 34 |
 | Soil Moisture      | GPIO 35 |
 | MQ135              | GPIO 32 |
 | Water Level Sensor | GPIO 33 |
-| Relay IN1 (Pump)   | GPIO 26 |
-| Relay IN2 (Fan)    | GPIO 27 |
-| Relay IN3 (LED)    | GPIO 14 |
+| Relay IN1 (Pump)   | GPIO 13 |
+| Relay IN2 (Fan)    | GPIO 26 |
+| Relay IN3 (LED)    | GPIO 27 |
 
 > Not: Pinler projeye göre değiştirilebilir.
 
